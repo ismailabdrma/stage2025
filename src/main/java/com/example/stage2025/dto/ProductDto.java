@@ -28,4 +28,8 @@ public class ProductDto {
     private List<String> imageUrls;
     private String categoryName;
     private String supplierName;
+
+    /** external product id at supplier (needed for sync, fetch, etc.) */
+    private String externalProductId;     // <-- ADD THIS LINE
 }
+

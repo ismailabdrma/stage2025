@@ -55,6 +55,7 @@ public class ProductServiceImpl implements ProductService {
                 .category(category)
                 .supplier(supplier)
                 .active(true)
+                .externalProductId(dto.getExternalProductId())
                 .build();
 
         Product saved = productRepository.save(product);
@@ -69,6 +70,7 @@ public class ProductServiceImpl implements ProductService {
         product.setName(dto.getName());
         product.setDescription(dto.getDescription());
         product.setDisplayedPrice(dto.getDisplayedPrice());
+        product.setExternalProductId(dto.getExternalProductId());
         product.setImageUrls(dto.getImageUrls());
 
         // Optionnel : mise à jour des relations

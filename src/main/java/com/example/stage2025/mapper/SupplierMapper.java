@@ -17,6 +17,7 @@ public class SupplierMapper {
         dto.setActive(supplier.isActive());
         dto.setCreated(supplier.getCreated());
         dto.setLastImport(supplier.getLastImport());
+        dto.setPayoutFrequency(supplier.getPayoutFrequency());
 
         if (supplier instanceof ApiSupplier api) {
             dto.setType("API");

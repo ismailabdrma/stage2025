@@ -1,14 +1,16 @@
 package com.example.stage2025.entity;
 
+import com.example.stage2025.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@MappedSuperclass
-@AllArgsConstructor
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
+@AllArgsConstructor
 public abstract class User {
 
     @Id
@@ -28,6 +30,11 @@ public abstract class User {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Column(nullable = false, unique = true)
+    private String username;
 
     @PrePersist
     protected void onCreate() {

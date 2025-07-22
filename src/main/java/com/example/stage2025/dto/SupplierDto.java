@@ -1,5 +1,6 @@
 package com.example.stage2025.dto;
 
+import com.example.stage2025.enums.PayoutFrequency;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,8 @@ public class SupplierDto {
     private String filePath;
     private LocalDateTime created;
     private LocalDateTime lastImport;
+
+    private PayoutFrequency payoutFrequency;
 
 
 }

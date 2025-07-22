@@ -1,5 +1,6 @@
 package com.example.stage2025.entity;
 
+import com.example.stage2025.enums.PayoutFrequency;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "supplier_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Supplier {
@@ -29,4 +29,11 @@ public abstract class Supplier {
 
     @OneToMany(mappedBy = "supplier")
     private List<Product> products;
+
+    @Enumerated(EnumType.STRING)
+    private PayoutFrequency payoutFrequency = PayoutFrequency.WEEKLY;
+
+    // 👉 Add this for payment batch management!
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    private List<SupplierPayment> payments;
 }

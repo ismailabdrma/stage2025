@@ -21,13 +21,12 @@ public class ProductMapper {
         dto.setLastFetched(p.getLastFetched());
 
         dto.setImageUrls(p.getImageUrls());
+        dto.setCategoryName(p.getCategory() != null ? p.getCategory().getName() : null);
+        dto.setSupplierName(p.getSupplier() != null ? p.getSupplier().getName() : null);
 
-        dto.setCategoryName(
-                p.getCategory() != null ? p.getCategory().getName() : null);
-
-        dto.setSupplierName(
-                p.getSupplier() != null ? p.getSupplier().getName() : null);
+        dto.setExternalProductId(p.getExternalProductId()); // <-- ADD THIS LINE
 
         return dto;
     }
+
 }
